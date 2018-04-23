@@ -89,11 +89,13 @@ class RepoListFragment : BaseFragment<RepoListFragmentViewModel>() {
                     is LoadingStatus.FailedLoading -> {
                         srl_refresh.isRefreshing = false
                         rv_repo_list.hide()
-                        ll_place_holder.show()
                         iv_avatar.load(placeholder = AVATAR_PLACE_HOLDER)
-                        tv_error_message.text = context?.resources?.getText(uiModel.loadingStatus.errorState.subtitleId) ?: ""
+                        ll_place_holder.show()
+                        with(uiModel.loadingStatus.errorState) {
+                            iv_place_holder.load(placeholder = icon)
+                            tv_error_message.text = context?.resources?.getText(subtitleId) ?: ""
+                        }
                         rv_repo_list.adapter = RepoListAdapter(ArrayList(), {})
-                        // TODO("implement icons for different failures")
                     }
                 }
             }
