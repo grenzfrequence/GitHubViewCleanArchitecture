@@ -1,7 +1,6 @@
 package com.grenzfrequence.githubviewcleanarchitecture.ui.repolist.ui
 
 import android.arch.lifecycle.MutableLiveData
-import android.util.Log
 import com.grenzfrequence.githubviewcleanarchitecture.ui.base.ui.BaseViewModel
 import com.grenzfrequence.githubviewcleanarchitecture.ui.repolist.data.GetRepoListUseCase
 import com.grenzfrequence.githubviewcleanarchitecture.ui.repolist.data.RepoListModel
@@ -36,7 +35,6 @@ class RepoListFragmentViewModel @Inject constructor(val getRepoListUseCase: GetR
     private var fetchDataDisposable: Disposable? = null
 
     fun onLoadNextPage(pageNr: Int) {
-        Log.i("TEST", "onLoadNextPage()")
         when {
             pageNr == PAGE_FIRST_POSITION -> {
                 repoList.clear()
