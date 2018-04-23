@@ -1,5 +1,6 @@
 package com.grenzfrequence.githubviewcleanarchitecture.ui.utils.Extensions
 
+import android.support.annotation.DrawableRes
 import android.support.v4.content.ContextCompat.getDrawable
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +21,7 @@ fun View.hide() {
 fun ViewGroup.inflate(layoutRes: Int): View =
         LayoutInflater.from(context).inflate(layoutRes, this, false)
 
-fun ImageView.load(imageUrl: String = "", placeholder: Int) {
+fun ImageView.load(imageUrl: String = "", @DrawableRes placeholder: Int) {
     if (imageUrl.isBlank()) {
         this.setImageDrawable(getDrawable(this.context, placeholder))
         return
