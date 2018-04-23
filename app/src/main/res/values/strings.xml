@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">GitHubViewCleanArchitecture</string>
+
+    <!--Business case errors of repo list-->
+    <string name="error_no_repo_found">Type other user name what owns repositories</string>
+    <string name="error_rate_limit_exceeded">Try one hour later after Github rate limit is reset</string>
+
+    <!--General errors-->
+    <string name="error_no_connection">Try again after connection to server is established</string>
+
+    <string name="hint_user_name">user name</string>
+
+    <!--Error text-->
+    <string name="error_no_data_title">Data not found</string>
+    <string name="error_no_data_subtitle">Github repository of given name not found.</string>
+    <string name="error_no_internet_title">No internet connection</string>
+    <string name="error_no_internet_subtitle">Your phone is not connected with internet.</string>
+    <string name="error_general_title">General error.</string>
+    <string name="error_general_subtitle">Rate limit could be exeeded.</string>
+
+</resources>

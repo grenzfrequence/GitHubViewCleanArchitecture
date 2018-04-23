@@ -1,0 +1,47 @@
+ext {
+
+    //Compilation
+    minSdkVersion = 16
+    compileSdkVersion = 27
+    targetSdkVersion = 27
+
+    //Support
+    appCompatVersion = "27.1.1"
+
+    //API
+    moshiVersion = "1.5.0"
+    retrofitVersion = "2.3.0"
+    okhttpVersion = "3.9.0"
+
+    //Rx
+    rxJavaVersion = '2.0.8'
+    rxAndroidVersion = '2.0.1'
+
+    //Dagger
+    daggerVersion = '2.12'
+
+    //Joda
+    jodaTimeVersion = '2.9.4'
+
+    //Architecture components
+    archComponentsVersion = '1.1.1'
+
+    //Constraint Layout
+    constraintLayoutVersion = "1.1.0-beta6"
+
+    //Junit
+    junitVersion = "4.12"
+
+    //Room
+    roomVersion = '1.0.0'
+
+    //Stetho
+    stethoVersion = '1.5.0'
+
+    //Glide
+    glideVersion = "4.4.0"
+
+    // google location service
+    playServicesVersion = '11.6.0'
+
+}
