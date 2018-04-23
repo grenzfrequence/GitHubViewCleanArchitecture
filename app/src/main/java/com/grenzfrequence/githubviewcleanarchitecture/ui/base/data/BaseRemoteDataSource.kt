@@ -5,6 +5,7 @@ import com.grenzfrequence.githubviewcleanarchitecture.ui.common.data.*
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.Retrofit
+import java.net.UnknownHostException
 import javax.inject.Inject
 
 abstract class BaseRemoteDataSource {
@@ -17,7 +18,7 @@ abstract class BaseRemoteDataSource {
                     .flatMap { currentResponse -> processResponse(response = currentResponse) }
                     .onErrorReturn { error ->
                         when (error) {
-                            is NoInternetException -> NoInternet()
+                            is UnknownHostException -> NoInternet()
                             else -> {
                                 Log.e(TAG, error.localizedMessage)
                                 Failure(exception = error.localizedMessage)
