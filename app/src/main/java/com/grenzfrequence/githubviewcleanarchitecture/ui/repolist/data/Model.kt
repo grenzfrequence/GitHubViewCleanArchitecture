@@ -1,8 +1,8 @@
 package com.grenzfrequence.githubviewcleanarchitecture.ui.repolist.data
 
-import org.joda.time.DateTime
+import com.grenzfrequence.githubviewcleanarchitecture.ui.repolist.ui.RepoList
 
-data class RepoListModel(val repoList: List<RepoModel>, val maxPageNr: Int)
+data class RepoListModel(val repoList: RepoList, val maxPageNr: Int)
 
 data class RepoModel(
         val repoOwner: RepoOwnerModel,

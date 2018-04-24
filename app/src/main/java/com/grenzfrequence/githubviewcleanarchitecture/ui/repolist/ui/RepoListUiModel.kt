@@ -12,4 +12,4 @@ sealed class LoadingStatus {
     class FailedLoading(val errorState: UiErrorState) : LoadingStatus()
 }
 
-typealias RepoList = ArrayList<RepoModel>
+typealias RepoList = List<RepoModel>
