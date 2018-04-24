@@ -26,13 +26,19 @@ class RepoListFragmentViewModel @Inject constructor(val getRepoListUseCase: GetR
     val repoListUiModel = MutableLiveData<RepoListUiModel>()
 
     // Loaded Data
-    private var repoList: RepoList = ArrayList()
+    private var repoList = ArrayList<RepoModel>()
     private var maxPageNumber: Int = 0
 
     // disposables
     // I use no compositedisposables because dispose does not work on it
     private var timerDisposable: Disposable? = null
     private var fetchDataDisposable: Disposable? = null
+
+    override fun onCleared() {
+        super.onCleared()
+        timerDisposable?.disposeSafety()
+        fetchDataDisposable?.disposeSafety()
+    }
 
     fun onLoadNextPage(pageNr: Int) {
         when {
