@@ -9,9 +9,9 @@ class DateAdapter {
 
     @FromJson
     @JsonDate
-    fun fromJson(utcString: String): DateTime = DateTime(utcString)
+    fun fromJson(utcString: String): Long = DateTime(utcString).millis
 
     @ToJson
-    fun toJson(@JsonDate date: DateTime): String = date.toString("dd.MM.yyyy")
+    fun toJson(@JsonDate millis: Long): String = DateTime(millis).toString("dd.MM.yyyy")
 
 }

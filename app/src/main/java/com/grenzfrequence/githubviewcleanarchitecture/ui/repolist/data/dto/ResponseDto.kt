@@ -2,14 +2,13 @@ package com.grenzfrequence.githubviewcleanarchitecture.ui.repolist.data.dto
 
 import com.grenzfrequence.githubviewcleanarchitecture.ui.common.MoshiAdapter.JsonDate
 import com.squareup.moshi.Json
-import org.joda.time.DateTime
 
 data class ResponseDto(
         @field:Json(name = "owner") val repoOwner: RepoOwnerDto?,
         @field:Json(name = "id") val repoId: Int?,
         @field:Json(name = "name") val repoName: String?,
         @field:Json(name = "description") val repoDescription: String?,
-        @field:Json(name = "updated_at") @field:JsonDate val repoUpdatedAt: DateTime?
+        @field:Json(name = "updated_at") @field:JsonDate val repoUpdatedAt: Long
 )
 
 data class RepoOwnerDto(

@@ -1,7 +1,6 @@
 package com.grenzfrequence.githubviewcleanarchitecture.ui.utils
 
 import com.grenzfrequence.githubviewcleanarchitecture.R
-import org.joda.time.DateTime
 
 // Preferences
 const val PREFERENCES = "appPreferences"
@@ -30,4 +29,4 @@ const val EMP = "&"
 
 // RepoList
 const val NO_ID = -1
-val NO_DATE: DateTime? = null
+val NO_DATE = 0

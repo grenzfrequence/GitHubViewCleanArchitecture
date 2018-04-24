@@ -9,7 +9,7 @@ data class RepoModel(
         val repoId: Int,
         val repoName: String,
         val repoDescription: String = "",
-        val repoUpdatedAt: DateTime?)
+        val repoUpdatedAt: Long)
 
 data class RepoOwnerModel(
         val ownerId: Int,

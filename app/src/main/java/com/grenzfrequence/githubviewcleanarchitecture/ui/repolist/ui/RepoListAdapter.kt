@@ -9,9 +9,10 @@ import com.grenzfrequence.githubviewcleanarchitecture.ui.utils.Extensions.hide
 import com.grenzfrequence.githubviewcleanarchitecture.ui.utils.Extensions.inflate
 import com.grenzfrequence.githubviewcleanarchitecture.ui.utils.Extensions.show
 import kotlinx.android.synthetic.main.repo_list_item.view.*
+import org.joda.time.DateTime
 
 class RepoListAdapter(
-        val repoList: List<RepoModel> = ArrayList(),
+        val repoList: RepoList = ArrayList(),
         val onClickListener: (selectedRepo: RepoModel) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -53,7 +54,7 @@ class RepoListAdapter(
         fun bind(repoModel: RepoModel) {
             with(itemView) {
                 tv_repo_name.text = repoModel.repoName
-                tv_repo_updated_at.text = repoModel.repoUpdatedAt?.toString("dd.MM.yyyy") ?: "";
+                tv_repo_updated_at.text = DateTime(repoModel.repoUpdatedAt).toString("dd.MM.yyyy") ?: "";
                 tv_repo_description.text = repoModel.repoDescription
                 setOnClickListener { onClickListener(repoModel) }
             }
