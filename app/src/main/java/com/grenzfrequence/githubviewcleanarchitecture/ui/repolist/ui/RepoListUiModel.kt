@@ -8,8 +8,8 @@ data class RepoListUiModel(val loadingStatus: LoadingStatus)
 sealed class LoadingStatus {
     object FirstPageLoading : LoadingStatus()
     object NextPageLoading : LoadingStatus()
-    class SuccessLoading(val data: RepoList) : LoadingStatus()
-    class FailedLoading(val errorState: UiErrorState) : LoadingStatus()
+    data class SuccessLoading(val data: RepoList) : LoadingStatus()
+    data class FailedLoading(val errorState: UiErrorState) : LoadingStatus()
 }
 
 typealias RepoList = List<RepoModel>

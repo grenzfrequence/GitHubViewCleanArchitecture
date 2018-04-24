@@ -10,15 +10,15 @@ import javax.inject.Inject
 class GetRepoListRepository @Inject constructor(private val remoteDataSource: Remote) {
 
     fun getRepoList(repoListRequest: RequestDto) = remoteDataSource.getRepoList(repoListRequest)
+}
 
-    class Remote @Inject constructor() : BaseRemoteDataSource() {
+class Remote @Inject constructor() : BaseRemoteDataSource() {
 
-        fun getRepoList(repoListRequest: RequestDto): Single<ResponseWrapper<List<ResponseDto>>> {
-            val repoListApiService = createService(GetRepoListApiService::class.java)
-            val apiStream = with(repoListRequest) {
-                repoListApiService.getRepoList(userName, pageNr, itemsPerPage, sort)
-            }
-            return processApiStream(apiStream)
+    fun getRepoList(repoListRequest: RequestDto): Single<ResponseWrapper<List<ResponseDto>>> {
+        val repoListApiService = createService(GetRepoListApiService::class.java)
+        val apiStream = with(repoListRequest) {
+            repoListApiService.getRepoList(userName, pageNr, itemsPerPage, sort)
         }
+        return processApiStream(apiStream)
     }
 }

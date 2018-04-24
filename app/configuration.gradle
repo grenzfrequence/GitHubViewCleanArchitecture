@@ -30,7 +30,7 @@ ext {
     constraintLayoutVersion = "1.1.0-beta6"
 
     //Junit
-    junitVersion = "4.12"
+    junitVersion = "4.3"
 
     //Room
     roomVersion = '1.0.0'

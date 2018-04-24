@@ -4,6 +4,7 @@ import android.arch.lifecycle.MutableLiveData
 import com.grenzfrequence.githubviewcleanarchitecture.ui.base.ui.BaseViewModel
 import com.grenzfrequence.githubviewcleanarchitecture.ui.repolist.data.GetRepoListUseCase
 import com.grenzfrequence.githubviewcleanarchitecture.ui.repolist.data.RepoListModel
+import com.grenzfrequence.githubviewcleanarchitecture.ui.repolist.data.RepoModel
 import com.grenzfrequence.githubviewcleanarchitecture.ui.utils.Extensions.disposeSafety
 import com.grenzfrequence.githubviewcleanarchitecture.ui.utils.PAGE_FIRST_POSITION
 import com.grenzfrequence.githubviewcleanarchitecture.ui.utils.TIME_AFTER_DATA_ENTRY
@@ -13,11 +14,10 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
-import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class RepoListFragmentViewModel @Inject constructor(val getRepoListUseCase: GetRepoListUseCase) : BaseViewModel() {
+class RepoListFragmentViewModel @Inject constructor(val getRepoListUseCase: GetRepoListUseCase, private var maxPageNumber: Int = 0) : BaseViewModel() {
 
     // Parameters
     var userName: String = ""
@@ -27,7 +27,6 @@ class RepoListFragmentViewModel @Inject constructor(val getRepoListUseCase: GetR
 
     // Loaded Data
     private var repoList = ArrayList<RepoModel>()
-    private var maxPageNumber: Int = 0
 
     // disposables
     // I use no compositedisposables because dispose does not work on it
@@ -61,7 +60,6 @@ class RepoListFragmentViewModel @Inject constructor(val getRepoListUseCase: GetR
                         { repoListModel: RepoListModel ->
                             maxPageNumber = repoListModel.maxPageNr
                             repoList.addAll(repoListModel.repoList)
-
                             when {
                                 !repoListModel.repoList.isEmpty() -> {
                                     notifySuccessLoading(repoList)
